@@ -7,29 +7,15 @@
 
 <h2>Reservation Details</h2>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$fname = $_POST["fname"];
-	$lname = $_POST["lname"];
-	$email = $_POST["email"];
-	$phone = $_POST["phone"];
-	$date = $_POST["date"];
-	$time = $_POST["time"];
-	$guests = $_POST["guests"];
-	$occasion = $_POST["occasion"];
-	$special_requests = $_POST["special_requests"];
-
-	echo "<p>First Name: " . $fname . "</p>";
-	echo "<p>Last Name: " . $lname . "</p>";
-	echo "<p>Email: " . $email . "</p>";
-	echo "<p>Phone Number: " . $phone . "</p>";
-	echo "<p>Date: " . $date . "</p>";
-	echo "<p>Time: " . $time . "</p>";
-	echo "<p>Number of Guests: " . $guests . "</p>";
-	echo "<p>Occasion: " . $occasion . "</p>";
-	echo "<p>Special Requests: " . $special_requests . "</p>";
-}
-?>
+<p>First Name: <?php echo $_POST["fname"]; ?></p>
+<p>Last Name: <?php echo $_POST["lname"]; ?></p>
+<p>Email: <?php echo $_POST["email"]; ?></p>
+<p>Phone Number: <?php echo $_POST["phone"]; ?></p>
+<p>Date: <?php echo $_POST["date"]; ?></p>
+<p>Time: <?php echo $_POST["time"]; ?></p>
+<p>Number of Guests: <?php echo $_POST["guests"]; ?></p>
+<p>Occasion: <?php echo $_POST["occasion"]; ?></p>
+<p>Special Requests: <?php echo $_POST["special_requests"]; ?></p>
 
 </body>
 </html>
