@@ -12,4 +12,4 @@ Place your HTML in a htdocs folder and JavaScript validation in js folder your p
 Use built-in regex function to validate the input from the form. Refer to PHP Documentation for details.
 Provide error friendly notifications for any invalid input.
 
-index.html is the form, style.css is the css styling, action.php server side, and validation.js is client side validation, all linked in html.
+index.html is the form, style.css is the css styling (in css folder), action.php server side, and validation.js (in js folder) is client side validation, all linked in html.
