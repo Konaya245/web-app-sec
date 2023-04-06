@@ -1,15 +1,16 @@
-# Input Validation (Client & Server Side)
-Instructions:
-1. Client-Side Input Validation
+**Student Form (index.php), Details (action.php) and Authn layers (login.php,register.php)**
+- Validate late and early used, regex on html/php and htmlspecialchars
+- Authentication by checking with mysql database. Hashed password using password_hash in register.php. If account already exist, error message.
+- Also logout added on form and detail pages to test authn.
 
-Use HTML5 and JavaScript input validation together with Regexes to make sure only certain characters and letters are allowed.
-Provide error friendly notifications for any invalid input (Error Messages).
-Place your HTML in a htdocs folder and JavaScript validation in js folder your project.
+**Sequence:**
+1. Starts at student form. Create session and redirect to login if not logged in. 
+2. Either insert login credentials to proceed back to student form or register.
+3. Register will send back to login after filled in with correct details.
+4. Student form page, fill in with correct input will send to student details. 
 
 
-2. Server-Side Input Validation
+**To run:**
+Place everything in htdocs, create db, edit config and run with xampp.
 
-Use built-in regex function to validate the input from the form. Refer to PHP Documentation for details.
-Provide error friendly notifications for any invalid input.
-
-index.html is the form, style.css is the css styling (in css folder), action.php server side, and validation.js (in js folder) is client side validation, all linked in html.
+//reminder to rename student form and details files
