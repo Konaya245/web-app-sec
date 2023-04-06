@@ -1,4 +1,13 @@
 <?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 // Define regular expressions for input validation
 $nameRegex = "/^[A-Za-z ]+$/";
 $matricnoRegex = "/^[A-Za-z0-9]+$/";
