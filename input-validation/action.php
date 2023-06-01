@@ -8,6 +8,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     exit;
 }
 
+// Check user roles and functions for authorization
+$role = $_SESSION["role"];
+
+//authorization logic
+if($role === "admin"){
+    // Administrator can view, update, and delete
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "user"){
+    // User can insert, update, and delete their own data
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "guest"){
+    // Guest can only fill in form not view results after
+    $canInsertUpdateDelete = true;
+    $canView = false;
+}
+
 // Define regular expressions for input validation
 $nameRegex = "/^[A-Za-z ]+$/";
 $matricnoRegex = "/^[A-Za-z0-9]+$/";
@@ -54,7 +72,7 @@ if (!preg_match($mobilephoneRegex, $_POST["homephone"])) {
 }
 
 // If there are no errors, display the input values
-if (count($errors) == 0) {
+if (count($errors) == 0 && $canView = true) {
   echo "<h2>Student Details</h2>";
   echo "<p><strong>Name:</strong> " . $_POST["name"] . "</p>";
   echo "<p><strong>Matric No:</strong> " . $_POST["matricno"] . "</p>";
@@ -64,6 +82,12 @@ if (count($errors) == 0) {
   echo "<p><strong>Mobile Phone No:</strong> " . $_POST["mobilephone"] . "</p>";
   echo "<p><strong>Home Phone No:</strong> " . $_POST["homephone"] . "</p>";
 }
+
+// For guest can view the form but not output
+elseif {$canview = false} {
+	echo "<p>You are not authorized to view this page.</p>"
+}
+
 // Otherwise, display the error messages
 else {
   echo "<h2>Errors:</h2>";

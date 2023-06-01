@@ -7,6 +7,26 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+
+// Check user roles and functions for authorization
+$role = $_SESSION["role"];
+
+//authorization logic
+if($role === "admin"){
+    // Administrator can view, update, and delete
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "user"){
+    // User can insert, update, and delete their own data
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "guest"){
+    // Guest can only fill in form not view results after
+    $canInsertUpdateDelete = true;
+    $canView = false;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

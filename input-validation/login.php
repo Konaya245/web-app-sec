@@ -8,6 +8,24 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
  
+// Check user roles and functions for authorization
+$role = $_SESSION["role"];
+
+//authorization logic
+if($role === "admin"){
+    // Administrator can view, update, and delete
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "user"){
+    // User can insert, update, and delete their own data
+    $canInsertUpdateDelete = true;
+    $canView = true;
+} elseif ($role === "guest"){
+    // Guest can only fill in form not view results after
+    $canInsertUpdateDelete = true;
+    $canView = false;
+}
+ 
 // Include config file
 require_once "config.php";
  
@@ -17,6 +35,7 @@ $email_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
  
     // Check if email is empty
     if(empty(trim($_POST["email"]))){
@@ -61,7 +80,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;                            
+                            $_SESSION["email"] = $email;
+							$_SESSION["role"] = $row["role"]; // Set the user role retrieved from the database
                             
                             // Redirect user to student form
                             header("location: index.php");
