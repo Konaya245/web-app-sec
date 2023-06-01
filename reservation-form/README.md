@@ -1,9 +1,11 @@
 # Reservation Form
 Instructions:
-Create a form for reservation of the your restaurant. In preparing for the reservation form you need to consider the following criteria:
+_"Create a form for reservation of the your restaurant. In preparing for the reservation form you need to consider the following criteria:
 
 What are the important details to be captured or gathered from the customers to identify who they are?
 What are the format, input and type of data to be collected?
 What are the filtering that need to be done before storing the data?
-This reservation form need to be coded using HTML, CSS, JavaScript and PHP. You need to place all the files in the htdocs of your xampp folder. You can decide which laptop to host the reservation form.
+This reservation form need to be coded using HTML, CSS, JavaScript and PHP. You need to place all the files in the htdocs of your xampp folder. You can decide which laptop to host the reservation form."_
 
+
+This is for group class activity to implement whitelist/blacklist. Our form validation with regex whitelist implemented proved to be unsuccessful when another group did SQL injection. 
